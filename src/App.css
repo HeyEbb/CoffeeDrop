@@ -13,15 +13,55 @@
   }
 }
 
+/* utility classes */
+.full-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-background {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 370px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-header-inner {
+  min-height: 100px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.App-header-inner .Item1 {
+  width: 100px;
+}
+
+.App-header-inner .Item2 {
+  width: 100px;
+}
+
+.Logo-main {
+  width: 40%;
+}
+
+.Icon-main {
+  width: 25px;
+  cursor: pointer;
 }
 
 .App-link {
