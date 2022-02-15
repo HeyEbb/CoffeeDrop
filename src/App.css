@@ -13,6 +13,11 @@
   }
 }
 
+/* default overrides */
+p {
+  color: black;
+}
+
 /* utility classes */
 .full-center {
   display: flex;
@@ -66,6 +71,21 @@
 
 .App-link {
   color: #61dafb;
+}
+
+/* generic card classes */
+.cardContainer {
+  height: 50vh;
+  background-color: bisque;
+  padding: 0 50px;
+}
+
+/* category cards */
+.categoryCardContainer {
+  width: 25%;
+  background-color: pink;
+  height: 150px;
+  border-radius: 20px;
 }
 
 @keyframes App-logo-spin {
