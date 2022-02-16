@@ -1,11 +1,12 @@
 import React from "react";
 
-export default function CategoryCard() {
+export default function CategoryCard(props) {
+
   return (
     <>
-	  <div className="categoryCardContainer">
-			Hi
-	  </div>
+      <div className="categoryCardContainer">
+        <p>{props.name}</p>
+      </div>
     </>
   );
 }

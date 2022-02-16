@@ -75,17 +75,21 @@ p {
 
 /* generic card classes */
 .cardContainer {
-  height: 50vh;
   background-color: bisque;
   padding: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* category cards */
 .categoryCardContainer {
   width: 25%;
+  max-width: 25%;
   background-color: pink;
   height: 150px;
   border-radius: 20px;
+  margin: 10px;
 }
 
 @keyframes App-logo-spin {

@@ -14,7 +14,7 @@ export default function Header() {
         <div className="Item2 full-center">Menu</div>
       </div>
       <img src={Logo} alt="Logo" className="Logo-main" />
-	  The UK's best events, brewed to perfection
+	  The fast and easy FBI lookup.
     </div>
   );
 }

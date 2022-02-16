@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Categories />
+      <Categories data={getResponse} />
     </>
   );
 }
