@@ -4,7 +4,7 @@ export default function CategoryCard(props) {
 
   return (
     <>
-      <div className="categoryCardContainer">
+      <div className="felonCardContainer">
         <p>{props.name}</p>
       </div>
     </>

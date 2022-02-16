@@ -5,21 +5,21 @@ import axios from "axios";
 
 // importing components
 import Header from "../components/header";
-import Categories from "../components/categorySelector";
+import FelonSelector from "../components/felonSelector";
 
 export default function Home() {
   const [getResponse, setResponse] = useState(null);
 
   // saving API details as variables for easier change at later date
   const token = "4BFJXRSKHS5NU3WBHB53";
-  const URL = "https://www.eventbriteapi.com/v3/categories/";
+  const URL = "https://api.fbi.gov/wanted/v1/list";
 
   useEffect(
     () =>
       axios
         .get(URL, {
-          headers: {
-            Authorization: "Bearer " + token, //the token is a variable which holds the token
+          params: {
+            'page': 1, //the token is a variable which holds the token
           },
         })
         .then(function (response) {
@@ -35,6 +35,7 @@ export default function Home() {
         })
         .then(function () {
           console.log("API fetched");
+		  // console.log(getResponse)
         }),
     []
   );
@@ -42,7 +43,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Categories data={getResponse} />
+      <FelonSelector data={getResponse} />
     </>
   );
 }
