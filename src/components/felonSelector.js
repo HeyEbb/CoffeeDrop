@@ -47,7 +47,12 @@ export default function FelonSelector() {
   } else {
     return (
       <>
-        <p>Who are you looking for?</p>
+        <div className="coreSearchContainer">
+          <form>
+            <input className="coreSearchBody" type="text" placeholder="Enter a name here..." />
+            <button className="coreSearchButton">Search</button>
+          </form>
+        </div>
         <div className="cardContainer">
           {getResponse.items.map((felon, index) => {
             // console.log(getResponse);
