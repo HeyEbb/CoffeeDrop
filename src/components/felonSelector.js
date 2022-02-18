@@ -47,7 +47,7 @@ export default function FelonSelector() {
   } else {
     return (
       <>
-        <p>What are you looking for?</p>
+        <p>Who are you looking for?</p>
         <div className="cardContainer">
           {getResponse.items.map((felon, index) => {
             // console.log(getResponse);
@@ -55,7 +55,6 @@ export default function FelonSelector() {
           })}
         </div>
         <div style={{ color: "black" }}>
-          Pagination will go here
           <Paginator numberOfPages={Math.ceil(getResponse.total / 20)} />
         </div>
       </>

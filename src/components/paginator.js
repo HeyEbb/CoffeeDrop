@@ -13,7 +13,6 @@ export default function Paginator(props) {
 
   return (
     <>
-      <div>Paginator</div>
       {listPages}
     </>
   );
