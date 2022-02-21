@@ -11,8 +11,7 @@ export default function Home() {
   const [getResponse, setResponse] = useState(null);
 
   // saving API details as variables for easier change at later date
-  const token = "4BFJXRSKHS5NU3WBHB53";
-  const URL = "https://api.fbi.gov/wanted/v1/list";
+  const URL = "https://api.fbi.gov/@wanted";
 
   useEffect(
     () =>
@@ -42,7 +41,7 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header type="full"/>
       <FelonSelector />
     </>
   );

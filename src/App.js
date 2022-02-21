@@ -1,17 +1,23 @@
 import logo from "./logo.svg";
 import "./App.css";
 
+// importing packages
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 // importing views
 import Home from "../src/views/home";
+import felonDetail from "./views/felonDetail";
 
 function App() {
   return (
-    <div className="App">
-      <header>{/* reserved for header */}</header>
-      <div className="App-background">
-        <Home />
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/case/:id" component={felonDetail}/>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 
