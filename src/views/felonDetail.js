@@ -1,6 +1,8 @@
 // importing packages
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+// importing packages
 import axios from "axios";
 
 // importing components
@@ -62,6 +64,18 @@ export default function FelonDetail({ match }) {
     }
   }
 
+  function checkDanger(i) {
+    if (i) {
+      return (
+        <div className="detailDangerous">
+          <span className="blink">{checkNull(getResponse.warning_message)}</span>
+        </div>
+      );
+    } else {
+      return <div className="detailDangerousLow">No Danger Rating</div>;
+    }
+  }
+
   if (!getResponse) {
     return <>😭</>;
   } else {
@@ -75,25 +89,68 @@ export default function FelonDetail({ match }) {
               src={getResponse.images[0].large}
             ></img>
             <div className="detailThumbContainerInner">
-              <h5>Aliases: {checkNull(getResponse.aliases)}</h5>
-              <h5>Sex: {checkNull(getResponse.sex)}</h5>
-              <h5>Race: {checkNull(getResponse.race_raw)}</h5>
-              <h5>Hair:{checkNull(getResponse.hair_raw)}</h5>
-              <h5>Eye Color:{checkNull(getResponse.eyes_raw)}</h5>
-              <h5>DOB:{checkNull(getResponse.dates_of_birth_used)}</h5>
-              <h5>
-                Place of Birth:{checkNull(getResponse.place_of_birth)}
-              </h5>
-              <h5>Max Height:{checkNull(getResponse.aliases)}</h5>
-              <h5>Age (Minimum):{checkNull(getResponse.height_max)}</h5>
               <button className="detailInfoButton">I have information</button>
             </div>
           </div>
           <div className="detailIntroContainer">
-            <h1>{toTitleCase(getResponse.title)}</h1>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <h1 style={{ width: "100%" }}>
+                {toTitleCase(getResponse.title)}
+              </h1>
+            
+              {checkDanger(getResponse.warning_message)}
+              {console.log(getResponse.warning_message)}
+          
+            </div>
             <p>{removeTags(getResponse.description)}</p>
             <p>{removeTags(getResponse.remarks)}</p>
             <p>{removeTags(getResponse.details)}</p>
+            <table style={{ width: "100%" }}>
+              <tbody>
+                <tr>
+                  <td style={{ width: "50%" }}>Date(s) of Birth Used</td>
+                  <td style={{ width: "50%" }}>
+                    {checkNull(getResponse.dates_of_birth_used)}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Place of Birth</td>
+                  <td>{checkNull(getResponse.place_of_birth)}</td>
+                </tr>
+                <tr>
+                  <td>Hair</td>
+                  <td>{checkNull(getResponse.hair_raw)}</td>
+                </tr>
+                <tr>
+                  <td>Eyes</td>
+                  <td>{checkNull(getResponse.eyes)}</td>
+                </tr>
+                <tr>
+                  <td>Height</td>
+                  <td>{checkNull(getResponse.height_max + " Inches")}</td>
+                </tr>
+                <tr>
+                  <td>Weight</td>
+                  <td>{checkNull(getResponse.weight_max + " Pounds")}</td>
+                </tr>
+                <tr>
+                  <td>Sex</td>
+                  <td>{checkNull(getResponse.sex)}</td>
+                </tr>
+                <tr>
+                  <td>Race</td>
+                  <td>{checkNull(getResponse.race)}</td>
+                </tr>
+                <tr>
+                  <td>Nationality</td>
+                  <td>{checkNull(getResponse.nationality)}</td>
+                </tr>
+                <tr>
+                  <td>Languages</td>
+                  <td>{checkNull(getResponse.languages)}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </>
