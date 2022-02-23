@@ -127,7 +127,7 @@ tr:nth-child(odd) {
 /* generic card classes */
 .cardContainer {
   background-color: #f9f9f9;
-  padding: 0 20px;
+  padding: 0 10%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -183,15 +183,21 @@ tr:nth-child(odd) {
   font-weight: 600;
 }
 
+.tagHolder {
+  display: flex;
+
+}
+
 .subjectHolder {
   text-transform: capitalize;
   font-size: 10px;
   font-weight: 700;
   border-radius: 50px;
-  width: moz-fit-content;
+  width: fit-content;
   padding: 5px 10px;
   text-align: left;
   color: white;
+  margin-right: 5px;
 }
 
 .cardImage {

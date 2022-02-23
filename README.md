@@ -14,7 +14,7 @@ Contributions are currently closed - sorry!
 
 ## Tech Stack
 
-**Client:** React, ReactRouter, TailwindCSS, Axios.
+**Client:** React, ReactRouter, Axios.
 
 **Backend:** Firebase, although just for hosting.
 

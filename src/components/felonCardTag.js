@@ -3,87 +3,68 @@ import React, { useState } from "react";
 export default function FelonCardTag(props) {
   const [getSubject, setObject] = useState(props.subject);
 
-  function checkSubjectAvailablity(arg) {
-    if (!arg) {
-      return <p>No Subject</p>;
-    } else {
-      return arg;
-    }
-  }
+  // defining colors
+  const SeekingInfo = "blue";
+  const ViCAP = "green";
+  const HumanTraffic = "pink";
+  const Murder = "#36c3fe";
+  const CriminalEnterprise = "#8c61ff";
+  const IndianCountry = "#3e77e9";
+  const Missing = "#644ca4";
+  const MostWanted = "#8e3c77";
+  const DefaultColor = "purple";
+  const CaseOfWeek = "yellow";
 
-  if (getSubject == "Seeking Information") {
+  var rendered = [];
+
+  if (getSubject) {
+    for (let i = 0; i < getSubject.length; i++) {
+      let color;
+
+      console.log(getSubject[i]);
+
+      switch (getSubject[i]) {
+        case "Kidnappings and Missing Persons":
+          color = Missing;
+          break;
+
+        case "Seeking Information":
+          color = SeekingInfo;
+          break;
+
+        case "Case Of The Week":
+          color = "CaseOfWeek";
+          break;
+
+        case "Human Trafficking":
+          color = HumanTraffic;
+          break;
+
+        case "ViCAP Homicides and Sexual Assaults":
+          color = ViCAP;
+          break;
+
+        default:
+          color = DefaultColor;
+          break;
+      }
+
+      rendered.push(
+        <>
+          <div className="subjectHolder" style={{ backgroundColor: color }}>
+            <span className="no-mar" style={{ color: "white" }}>
+              {getSubject[i]}
+            </span>
+          </div>
+        </>
+      );
+    }
     return (
       <>
-        <div className="subjectHolder" style={{ backgroundColor: "#3d3d3d" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
+        <div className="tagHolder">{rendered}</div>
       </>
     );
-  } else if (getSubject == "Kidnappings and Missing Persons") {
-    return (
-      <>
-        <div className="subjectHolder" style={{ backgroundColor: "#6059f7" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
-      </>
-    );
-  } else if (getSubject == "ViCAP Homicides and Sexual Assaults") {
-    return (
-      <>
-        <div className="subjectHolder" style={{ backgroundColor: "#6592fe" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
-      </>
-    );
-  } else if (getSubject == "Human Trafficking") {
-    return (
-      <>
-        <div className="subjectHolder" style={{ backgroundColor: "#36c3fe" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
-      </>
-    );
-  } else if (getSubject == "Violent Crime - Murders") {
-    return (
-      <>
-        <div className="subjectHolder" style={{ backgroundColor: "#8c61ff" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
-      </>
-    );
-  } else if (getSubject == "Ten Most Wanted Fugitives") {
-    return (
-      <>
-        <div className="subjectHolder" style={{ backgroundColor: "#3e77e9" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
-      </>
-    );
-  } else if (getSubject == "Indian CountryKidnappings and Missing") {
-    return (
-      <>
-        <div className="subjectHolder" style={{ backgroundColor: "#644ca4" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
-      </>
-    );
-  } 
-  else if (getSubject == "Criminal Enterprise Investigations") {
-    return (
-      <>
-        <div className="subjectHolder" style={{ backgroundColor: "#8e3c77" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
-      </>
-    );
-  }
-  else {
-    return (
-      <>
-        <div className="subjectHolder" style={{ backgroundColor: "#3d3d3d" }}>
-          {checkSubjectAvailablity(getSubject)}
-        </div>
-      </>
-    );
+  } else if (!getSubject) {
+    return <>No Subjects</>;
   }
 }

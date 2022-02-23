@@ -33,9 +33,6 @@ export default function CategoryCard(props) {
       <div className="categoryCardContainer">
         <div key={felonData.uid}>
           <FelonCardTag subject={felonData.subjects} />
-          {/* <div className="subjectHolder">
-            {checkSubjectAvailablity(felonData.subjects)}
-          </div> */}
           <img className="cardImage" src={felonData.images[0].large}></img>
           <h3 className="cardName no-mar" style={{ padding: "10px 0 10px 0" }}>
             {toTitleCase(felonData.title)}
