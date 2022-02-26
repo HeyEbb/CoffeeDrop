@@ -34,7 +34,6 @@ export default function FelonSelector() {
         })
         .then(function () {
           console.log("API fetched");
-          console.log("response is...");
         }),
     []
   );
@@ -49,14 +48,17 @@ export default function FelonSelector() {
       <>
         <div className="coreSearchContainer">
           <form>
-            <input className="coreSearchBody" type="text" placeholder="Enter a name here..." />
+            <input
+              className="coreSearchBody"
+              type="text"
+              placeholder="Enter a name here..."
+            />
             <button className="coreSearchButton">Search</button>
           </form>
         </div>
         <div className="cardContainer">
           {getResponse.items.map((felon, index) => {
-            // console.log(getResponse);
-            return <FelonCard felon={felon} />;
+              return <FelonCard key={felon.uid} felon={felon} />;
           })}
         </div>
         <div style={{ color: "black" }}>

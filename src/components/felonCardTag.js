@@ -20,9 +20,6 @@ export default function FelonCardTag(props) {
   if (getSubject) {
     for (let i = 0; i < getSubject.length; i++) {
       let color;
-
-      console.log(getSubject[i]);
-
       switch (getSubject[i]) {
         case "Kidnappings and Missing Persons":
           color = Missing;

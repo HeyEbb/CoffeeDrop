@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function CategoryCard(props) {
   const [felonData, setFelonData] = useState(props.felon);
-  
+
   // utility function to make titles title case
   var toTitleCase = function (str) {
     str = str.toLowerCase().split(" ");
@@ -30,7 +30,10 @@ export default function CategoryCard(props) {
 
   return (
     <>
-      <div className="categoryCardContainer">
+      <Link
+        to={"/case/" + felonData.uid}
+        className="categoryCardContainer"
+      >
         <div key={felonData.uid}>
           <FelonCardTag subject={felonData.subjects} />
           <img className="cardImage" src={felonData.images[0].large}></img>
@@ -38,9 +41,8 @@ export default function CategoryCard(props) {
             {toTitleCase(felonData.title)}
           </h3>
           <p className="no-mar-top">{felonData.description}</p>
-          <Link to={'/case/' + felonData.uid} exact><p>Find out more</p></Link>
         </div>
-      </div>
+      </Link>
     </>
   );
 }

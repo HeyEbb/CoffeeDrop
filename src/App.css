@@ -172,6 +172,7 @@ tr:nth-child(odd) {
     0px 0px 1px rgba(0, 0, 0, 0.04);
   transition: all 0.1s ease-in-out;
   text-align: left;
+  text-decoration: none;
 }
 
 .categoryCardContainer:hover {
